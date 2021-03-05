@@ -9,7 +9,7 @@ module.exports = (app) => {
 
   router.get("/", tasks.findAll);
 
-  router.get("/done", tasks.findAllDone);
+  router.put("/:id/done", tasks.findAllDone);
 
   router.get("/:id", tasks.findOne);
 
