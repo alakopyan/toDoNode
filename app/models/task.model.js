@@ -3,7 +3,7 @@ module.exports = mongoose => {
     "task",
     mongoose.Schema(
       {
-        name: String,
+        title: String,
         isDone: Boolean
       },
       { timestamps: true }
