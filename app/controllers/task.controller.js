@@ -2,13 +2,13 @@ const db = require("../models");
 const Task = db.tasks;
 
 exports.create = (req, res) => {
-  if (!req.body.name) {
+  if (!req.body.title) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
   const task = new Task({
-    name: req.body.name,
+    title: req.body.title,
     isDone: false,
   });
 
@@ -25,9 +25,9 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const name = req.query.name;
-  var condition = name
-    ? { name: { $regex: new RegExp(name), $options: "i" } }
+  const title = req.query.title;
+  var condition = title
+    ? { title: { $regex: new RegExp(title), $options: "i" } }
     : {};
 
   Task.find(condition)
